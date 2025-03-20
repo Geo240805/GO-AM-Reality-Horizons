@@ -100,7 +100,7 @@
       <div
         class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm sm:text-base"
       >
-        <p>© 2023 Todos los derechos reservados</p>
+        <p>© {{ new Date().getFullYear() }} Todos los derechos reservados</p>
 
         <div class="flex gap-2 sm:gap-4">
           <a href="#" class="hover:underline transition-colors duration-300 hover:text-gray-200"

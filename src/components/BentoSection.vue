@@ -169,7 +169,9 @@
         >
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-bold text-gray-800">Estadísticas</h3>
-            <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">2023</span>
+            <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">
+              {{ new Date().getFullYear() }}
+            </span>
           </div>
 
           <div class="space-y-4">
