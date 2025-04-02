@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/dispositivos',
       name: 'dispositivos',
-      component: () => import('../views/DispositivosCompatiblesView.vue'),
+      component: () => import('../views/DispositivosView.vue'),
     },
     {
       path: '/realidad-aumentada',
