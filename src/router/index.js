@@ -12,41 +12,32 @@ const router = createRouter({
     {
       path: '/registro',
       name: 'registro',
-      component: () => import(/* webpackChunkName: "registro" */ '../views/RegistroView.vue'),
+      component: () => import('../views/RegistroView.vue'),
     },
     {
       path: '/dispositivos',
       name: 'dispositivos',
-      component: () =>
-        import(/* webpackChunkName: "dispositivos" */ '../views/DispositivosView.vue'),
+      component: () => import('../views/DispositivosCompatiblesView.vue'),
     },
     {
       path: '/realidad-aumentada',
       name: 'realidad-aumentada',
-      component: () =>
-        import(/* webpackChunkName: "realidad-aumentada" */ '../views/RealidadAumentadaView.vue'),
+      component: () => import('../views/RealidadAumentadaView.vue'),
     },
     {
       path: '/entrada',
       name: 'entrada',
-      component: () => import(/* webpackChunkName: "entrada" */ '../views/EntradaView.vue'),
+      component: () => import('../views/EntradaView.vue'),
     },
     {
       path: '/biblioteca',
       name: 'biblioteca',
-      component: () => import(/* webpackChunkName: "biblioteca" */ '../views/BibliotecaView.vue'),
+      component: () => import('../views/BibliotecaView.vue'),
     },
     {
-      path: '/biblioteca/dentro',
-      name: 'dentro-biblioteca',
-      component: () =>
-        import(/* webpackChunkName: "dentro-biblioteca" */ '../views/DentroBibliotecaView.vue'),
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import(/* webpackChunkName: "login" */ '../views/LoginView.vue'),
-      meta: { requiresAuth: false },
+      path: '/dentroBiblioteca',
+      name: 'dentroBiblioteca',
+      component: () => import('../views/DentroBibliotecaView.vue'),
     },
   ],
 })
