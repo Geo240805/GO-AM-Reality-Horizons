@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import DispositivosView from '../views/DispositivosView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +18,7 @@ const router = createRouter({
     {
       path: '/dispositivos',
       name: 'dispositivos',
-      component: () => import('../views/DispositivosView.vue'),
+      component: DispositivosView,
     },
     {
       path: '/realidad-aumentada',
