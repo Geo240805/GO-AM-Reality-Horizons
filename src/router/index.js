@@ -39,6 +39,11 @@ const router = createRouter({
       name: 'dentroBiblioteca',
       component: () => import('../views/DentroBibliotecaView.vue'),
     },
+    {
+      path: '/login', 
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+    }
   ],
 })
 
