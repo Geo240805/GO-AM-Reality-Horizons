@@ -245,6 +245,7 @@
 </template>
 
 <script setup>
+// Explicar script
 import { ref, computed, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { User, Mail, Lock, Eye, EyeOff, Loader2, ArrowLeft } from 'lucide-vue-next'
