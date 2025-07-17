@@ -2,6 +2,7 @@
 import HeaderNavigation from '@/components/shared/HeaderNav.vue'
 import HeroCarousel from '@/components/HeroCarousel.vue'
 import BentoSection from '@/components/BentoSection.vue'
+import ServicesSection from '@/components/ServicesSection.vue'
 </script>
 
 <template>
@@ -9,5 +10,6 @@ import BentoSection from '@/components/BentoSection.vue'
     <HeaderNavigation />
     <HeroCarousel />
     <BentoSection />
+    <ServicesSection />
   </div>
 </template>
