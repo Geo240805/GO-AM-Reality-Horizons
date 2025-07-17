@@ -9,6 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: '/realidad-aumentada',
+      name: 'realidad-aumentada',
+      component: () => import('../views/RealidadAumentadaView.vue'),
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {
