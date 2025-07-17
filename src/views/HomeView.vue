@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import BentoSection from '@/components/BentoSection.vue'
 import HeroCarousel from '@/components/HeroCarousel.vue'
-import ProductsSection from '@/components/ProductsSection.vue'
-import ServicesSection from '@/components/ServicesSection.vue'
 import HeaderNavigation from '@/components/shared/HeaderNav.vue'
+import SolutionsSections from '@/components/SolutionsSections.vue'
 </script>
 
 <template>
@@ -11,7 +10,6 @@ import HeaderNavigation from '@/components/shared/HeaderNav.vue'
     <HeaderNavigation />
     <HeroCarousel />
     <BentoSection />
-    <ServicesSection />
-    <ProductsSection />
+    <SolutionsSections />
   </div>
 </template>
