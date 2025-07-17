@@ -4,6 +4,7 @@ import BentoSection from '@/components/BentoSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
 import HeroCarousel from '@/components/HeroCarousel.vue'
+import FooterSection from '@/components/shared/FooterSection.vue'
 import HeaderNavigation from '@/components/shared/HeaderNav.vue'
 import SolutionsSections from '@/components/SolutionsSections.vue'
 </script>
@@ -17,5 +18,6 @@ import SolutionsSections from '@/components/SolutionsSections.vue'
     <AboutUsSection />
     <FaqSection />
     <ContactSection />
+    <FooterSection />
   </div>
 </template>
