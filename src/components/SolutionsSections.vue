@@ -52,7 +52,7 @@
   </section>
 
   <!-- Productos / Soluciones -->
-  <section id="servicios" class="relative px-4 py-16 overflow-hidden sm:py-24">
+  <section id="soluciones" class="relative px-4 py-16 overflow-hidden sm:py-24">
     <!-- Fondo con efecto parallax -->
     <div
       class="absolute inset-0 z-0 transform scale-110 bg-center bg-cover opacity-15"
@@ -207,7 +207,7 @@
         </a>
       </div>
     </div>
-    <div id="Nosotros" class="pt-1"></div>
+    <div id="nosotros" class="pt-1"></div>
   </section>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <section
+    id="contacto"
     class="py-8 sm:py-12 px-4 bg-black/50 bg-opacity-80 bg-[url('src/assets/images/bg.jpg')] bg-cover bg-center bg-blend-overlay rounded-none"
   >
     <div class="grid max-w-5xl gap-8 mx-auto md:grid-cols-2">

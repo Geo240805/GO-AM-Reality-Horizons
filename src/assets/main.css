@@ -119,3 +119,8 @@
     @apply p-0 m-0 bg-background text-foreground;
   }
 }
+
+html,
+body {
+  scroll-behavior: smooth;
+}
