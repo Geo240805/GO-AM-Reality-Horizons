@@ -22,8 +22,8 @@
         <div class="items-center hidden space-x-1 md:flex lg:space-x-4">
           <ul class="flex items-center space-x-1 lg:space-x-2">
             <li v-for="(item, index) in navItems" :key="index">
-              <a
-                :href="item.href"
+              <router-link
+                :to="item.href"
                 class="relative px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 :class="[
                   isScrolled
@@ -35,7 +35,7 @@
                 ]"
               >
                 {{ item.label }}
-              </a>
+              </router-link>
             </li>
           </ul>
           <div class="relative ml-2">

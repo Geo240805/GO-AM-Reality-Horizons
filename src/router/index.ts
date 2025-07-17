@@ -10,6 +10,21 @@ const router = createRouter({
       component: HomeView,
     },
   ],
+  scrollBehavior(to) {
+    if (to.hash) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const el = document.querySelector(to.hash)
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 72
+            window.scrollTo({ top: y, behavior: 'smooth' })
+          }
+          resolve(false)
+        }, 100)
+      })
+    }
+    return { top: 0, behavior: 'smooth' }
+  },
 })
 
 export default router
