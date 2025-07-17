@@ -3,59 +3,54 @@
     id="inicio"
     class="relative h-[90vh] sm:h-screen flex items-center justify-center overflow-hidden"
   >
-    <!-- Imágenes de fondo con transición mejorada -->
     <div
-      v-for="(_, index) in texts"
-      :key="`bg-${index + 1}`"
-      class="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
+      v-for="(img, index) in images"
+      :key="`bg-${index}`"
+      class="absolute inset-0 transition-all duration-1000 ease-in-out bg-center bg-cover"
       :style="{
-        backgroundImage: `url('/prueba${index + 1}.${index + 1 === 1 ? 'jpg' : 'png'}')`,
-        opacity: currentImage === index + 1 ? 1 : 0,
-        transform: `scale(${currentImage === index + 1 ? 1 : 1.1})`,
+        backgroundImage: `url('/src/assets/images/carousel/${img}')`,
+        opacity: currentImage === index ? 1 : 0,
+        transform: `scale(${currentImage === index ? 1 : 1.1})`,
       }"
     ></div>
 
-    <!-- Overlay con gradiente para mejorar legibilidad -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
 
     <!-- Contenido principal -->
-    <div class="relative z-10 text-center px-4 w-full max-w-4xl mx-auto">
+    <div class="relative z-10 w-full max-w-4xl px-4 mx-auto text-center">
       <!-- Textos con animación mejorada -->
-      <div v-for="text in texts" :key="`text-${text.id}`" class="relative">
-        <div
-          v-if="currentImage === text.id"
-          class="flex flex-col items-center space-y-6 animate-fadeIn"
-        >
+      <div class="relative">
+        <div class="flex flex-col items-center space-y-6 animate-fadeIn" v-if="texts[currentImage]">
           <h2
-            class="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium uppercase tracking-wider"
+            class="text-xl font-medium tracking-wider text-white uppercase sm:text-2xl md:text-3xl lg:text-4xl"
           >
-            {{ text.content }}
+            {{ texts[currentImage].content }}
           </h2>
 
           <!-- Subtítulo -->
-          <p class="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-            {{ text.subtitle }}
+          <p class="max-w-2xl mx-auto text-sm text-gray-200 sm:text-base md:text-lg">
+            {{ texts[currentImage].subtitle }}
           </p>
 
           <!-- Botón CTA -->
           <a
-            :href="text.ctaLink"
-            class="mt-4 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center gap-2 font-medium"
+            :href="texts[currentImage].ctaLink"
+            class="inline-flex items-center gap-2 px-6 py-3 mt-4 font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:bg-teal-700 hover:scale-105 hover:shadow-lg"
           >
-            {{ text.ctaText }}
-            <ArrowRight class="h-4 w-4" />
+            {{ texts[currentImage].ctaText }}
+            <ArrowRight class="w-4 h-4" />
           </a>
         </div>
       </div>
     </div>
 
     <!-- Controles de navegación -->
-    <div class="absolute inset-x-0 flex justify-between items-center px-4 sm:px-8 z-10">
+    <div class="absolute inset-x-0 z-10 flex items-center justify-between px-4 sm:px-8">
       <button
         @click="prevSlide"
         @mouseenter="pauseSlideshow"
         @mouseleave="resumeSlideshow"
-        class="bg-black/30 hover:bg-teal-600/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+        class="p-2 text-white transition-all duration-300 rounded-full bg-black/30 hover:bg-teal-600/70 sm:p-3 hover:scale-110 backdrop-blur-sm"
         aria-label="Previous slide"
       >
         <ChevronLeft :size="20" class="sm:hidden" />
@@ -65,7 +60,7 @@
         @click="nextSlide"
         @mouseenter="pauseSlideshow"
         @mouseleave="resumeSlideshow"
-        class="bg-black/30 hover:bg-teal-600/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+        class="p-2 text-white transition-all duration-300 rounded-full bg-black/30 hover:bg-teal-600/70 sm:p-3 hover:scale-110 backdrop-blur-sm"
         aria-label="Next slide"
       >
         <ChevronRight :size="20" class="sm:hidden" />
@@ -74,17 +69,17 @@
     </div>
 
     <!-- Indicadores de diapositivas -->
-    <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+    <div class="absolute left-0 right-0 z-10 flex justify-center gap-2 bottom-6">
       <button
-        v-for="n in texts.length"
-        :key="`dot-${n}`"
-        @click="goToSlide(n)"
+        v-for="(img, idx) in images"
+        :key="`dot-${idx}`"
+        @click="goToSlide(idx)"
         @mouseenter="pauseSlideshow"
         @mouseleave="resumeSlideshow"
         :class="`w-3 h-3 rounded-full transition-all duration-300 ${
-          currentImage === n ? 'bg-teal-500 w-8' : 'bg-white/50 hover:bg-white/80'
+          currentImage === idx ? 'bg-teal-500 w-8' : 'bg-white/50 hover:bg-white/80'
         }`"
-        :aria-label="`Go to slide ${n}`"
+        :aria-label="`Go to slide ${idx + 1}`"
       ></button>
     </div>
   </header>
@@ -94,11 +89,10 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-vue-next'
 
-const currentImage = ref<number>(1)
+const currentImage = ref<number>(0)
 const isPaused = ref<boolean>(false)
 
 interface TextItem {
-  id: number
   content: string
   subtitle: string
   ctaText: string
@@ -107,39 +101,44 @@ interface TextItem {
 
 const texts: TextItem[] = [
   {
-    id: 1,
     content: 'Experiencias inmersivas para tu negocio',
     subtitle:
       'Transformamos espacios físicos en experiencias digitales interactivas que cautivan a tus clientes',
     ctaText: 'Descubre cómo',
-    ctaLink: '#Servicios',
+    ctaLink: '#servicios',
   },
   {
-    id: 2,
     content: 'Realidad virtual y aumentada a tu alcance',
     subtitle: 'Tecnología de vanguardia adaptada a las necesidades específicas de tu empresa',
     ctaText: 'Ver soluciones',
-    ctaLink: '#Servicios',
+    ctaLink: '#servicios',
   },
   {
-    id: 3,
     content: 'Transforma tu visión en realidad',
     subtitle: 'Diseñamos y desarrollamos experiencias digitales que superan las expectativas',
     ctaText: 'Contáctanos',
-    ctaLink: '#Contacto',
+    ctaLink: '#contacto',
   },
 ]
 
+const images = [
+  'carousel-hombre-explorando-metaverso-01.webp',
+  'carousel-mujer-visualizando-arquitectura-vr-02.webp',
+  'carousel-diseno-planos-arquitectonicos-vr-03.webp',
+]
+
 const nextSlide = (): void => {
-  currentImage.value = currentImage.value === texts.length ? 1 : currentImage.value + 1
+  currentImage.value = (currentImage.value + 1) % images.length
 }
 
 const prevSlide = (): void => {
-  currentImage.value = currentImage.value === 1 ? texts.length : currentImage.value - 1
+  currentImage.value = (currentImage.value - 1 + images.length) % images.length
 }
 
 const goToSlide = (slideNumber: number): void => {
-  currentImage.value = slideNumber
+  if (slideNumber >= 0 && slideNumber < images.length) {
+    currentImage.value = slideNumber
+  }
 }
 
 const pauseSlideshow = (): void => {
