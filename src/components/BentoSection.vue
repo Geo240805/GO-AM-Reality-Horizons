@@ -17,7 +17,7 @@
         >
           <div
             class="absolute inset-0 transition-opacity duration-300 bg-center bg-cover opacity-20 group-hover:opacity-30"
-            style="background-image: url('/src/assets/images/vr-experience.webp')"
+            style="background-image: url('/images/vr-experience.webp')"
           ></div>
           <div class="relative z-10">
             <h3 class="mb-2 text-xl font-bold sm:text-2xl">Experiencias VR Inmersivas</h3>
@@ -112,7 +112,7 @@
             </p>
           </div>
           <div class="flex items-center mt-4 text-sm font-medium text-teal-400">
-            <a href="/#Contacto">
+            <a href="/#contacto">
               <span>Solicitar demo</span>
             </a>
             <svg

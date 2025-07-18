@@ -94,7 +94,7 @@
                 class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-2 border-teal-500/50 transform hover:scale-[1.02] transition-all duration-500"
               >
                 <img
-                  src="/src/assets/images/about/team.jpg"
+                  src="/images/about/team.jpg"
                   alt="Equipo GO-AM Reality Horizons"
                   class="object-cover w-full h-auto"
                 />

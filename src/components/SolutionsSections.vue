@@ -56,7 +56,7 @@
     <!-- Fondo con efecto parallax -->
     <div
       class="absolute inset-0 z-0 transform scale-110 bg-center bg-cover opacity-15"
-      style="background-image: url('/src/assets/images/services/realidadAR.jpg')"
+      style="background-image: url('/images/services/realidadAR.jpg')"
     ></div>
     <!-- Overlay con gradiente -->
     <div class="absolute inset-0 z-0 bg-gradient-to-b from-white via-transparent to-white"></div>
@@ -82,7 +82,7 @@
               class="absolute inset-0 transition-transform duration-700 bg-center bg-cover group-hover:scale-110"
               style="
                 background-image:
-                  url('/tour-virtual-bg.jpg'), url('/src/assets/images/services/realidadAR.jpg');
+                  url('/tour-virtual-bg.jpg'), url('/images/services/realidadAR.jpg');
               "
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -96,7 +96,7 @@
               <div class="flex items-center justify-center w-10 h-10 mr-3 bg-teal-100 rounded-full">
                 <img
                   alt="Icono de tecnología avanzada"
-                  src="/src/assets/images/services/tour-virtual.png"
+                  src="/images/services/tour-virtual.png"
                   class="w-6 h-6"
                 />
               </div>
@@ -124,8 +124,7 @@
               class="absolute inset-0 transition-transform duration-700 bg-center bg-cover group-hover:scale-110"
               style="
                 background-image:
-                  url('/realidad-aumentada-bg.jpg'),
-                  url('/src/assets/images/services/realidadAR.jpg');
+                  url('/realidad-aumentada-bg.jpg'), url('/images/services/realidadAR.jpg');
               "
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -137,11 +136,7 @@
           <div class="flex flex-col flex-grow p-5">
             <div class="flex items-center mb-4">
               <div class="flex items-center justify-center w-10 h-10 mr-3 bg-teal-100 rounded-full">
-                <img
-                  alt=""
-                  src="/src/assets/images/services/augmented-reality.png"
-                  class="w-6 h-6"
-                />
+                <img alt="" src="/images/services/augmented-reality.png" class="w-6 h-6" />
               </div>
               <span class="text-sm font-medium text-teal-700">Interacción Avanzada</span>
             </div>
@@ -224,7 +219,7 @@ const services = [
       'Compatibilidad multiplataforma',
       'Experiencias personalizadas',
     ],
-    image: '/src/assets/images/services/vr-development.webp',
+    image: '/images/services/vr-development.webp',
   },
   {
     title: 'Soluciones AR',
@@ -234,13 +229,13 @@ const services = [
       'Integración con dispositivos móviles',
       'Experiencias interactivas',
     ],
-    image: '/src/assets/images/services/ar-solutions.webp',
+    image: '/images/services/ar-solutions.webp',
   },
   {
     title: 'Tours Virtuales',
     description: 'Creamos recorridos virtuales inmersivos para diversas aplicaciones.',
     features: ['Navegación 360°', 'Puntos de interés interactivos', 'Integración con sitios web'],
-    image: '/src/assets/images/services/virtual-tours.webp',
+    image: '/images/services/virtual-tours.webp',
   },
 ]
 </script>
