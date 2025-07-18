@@ -14,6 +14,21 @@ const router = createRouter({
       name: 'realidad-aumentada',
       component: () => import('../views/RealidadAumentadaView.vue'),
     },
+    {
+      path: '/tours-virtuales',
+      name: 'tours-virtuales',
+      component: () => import('../views/VirtualsTour.vue'),
+    },
+    {
+      path: '/tours-virtuales/museo-historico',
+      name: 'museo-historico',
+      component: () => import('../views/tour-museo-historico.vue'),
+    },
+    {
+      path: '/tours-virtuales/ciudad',
+      name: 'ciudad',
+      component: () => import('../views/tour-ciudad.vue'),
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {

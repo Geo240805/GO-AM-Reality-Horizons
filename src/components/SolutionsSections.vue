@@ -74,7 +74,7 @@
       <div class="grid max-w-5xl grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-2">
         <!-- Tarjeta 1: Tour Virtual -->
         <RouterLink
-          to="/entrada"
+          to="/tours-virtuales"
           class="flex flex-col h-full overflow-hidden transition-all duration-500 transform bg-white shadow-md group rounded-2xl hover:shadow-xl hover:-translate-y-2"
         >
           <div class="relative h-48 overflow-hidden">
