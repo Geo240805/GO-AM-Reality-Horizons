@@ -38,16 +38,6 @@
               </router-link>
             </li>
           </ul>
-          <div class="relative ml-2">
-            <div>
-              <Button
-                class="'flex items-center gap-2 text-sm font-medium transition-all duration-300 bg-teal-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 hover:bg-teal-700 text-white"
-              >
-                <UserCircle class="w-4 h-4" />
-                Iniciar Sesión
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -55,10 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { UserCircle } from 'lucide-vue-next'
-import Button from '@/components/ui/button/Button.vue'
-
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 const navItems = [
   { id: 'inicio', label: 'Inicio', href: '/#inicio' },
   { id: 'soluciones', label: 'Soluciones', href: '/#soluciones' },
