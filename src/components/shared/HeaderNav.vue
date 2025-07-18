@@ -28,11 +28,11 @@
                 :href="item.href"
                 class="relative px-3 py-2 text-sm lg:text-base font-medium transition-all duration-300 rounded-lg group focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 :class="[
-                  isScrolled
-                    ? item.id === 'inicio'
-                      ? 'text-teal-600'
-                      : 'text-gray-800 hover:text-teal-600'
-                    : 'text-white hover:text-teal-300',
+                  activeSection === item.id
+                    ? 'text-teal-600'
+                    : isScrolled
+                      ? 'text-gray-800 hover:text-teal-600'
+                      : 'text-white hover:text-teal-300',
                   'hover:bg-white/10',
                 ]"
                 @click="closeMenu"
@@ -51,30 +51,30 @@
         <button
           @click="toggleMenu"
           class="relative z-50 flex flex-col items-center justify-center w-8 h-8 space-y-1 transition-all duration-300 md:hidden focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-md"
-          :class="[isScrolled ? 'text-gray-800' : 'text-white']"
+          :class="[isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white']"
           aria-label="Abrir menú de navegación"
-          aria-expanded="false"
+          :aria-expanded="isMenuOpen"
         >
           <!-- Líneas del hamburger -->
           <span
             :class="[
               'block w-6 h-0.5 transition-all duration-300 transform',
               isMenuOpen ? 'rotate-45 translate-y-1.5' : '',
-              isScrolled ? 'bg-gray-800' : 'bg-white',
+              isScrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white',
             ]"
           ></span>
           <span
             :class="[
               'block w-6 h-0.5 transition-all duration-300',
               isMenuOpen ? 'opacity-0' : 'opacity-100',
-              isScrolled ? 'bg-gray-800' : 'bg-white',
+              isScrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white',
             ]"
           ></span>
           <span
             :class="[
               'block w-6 h-0.5 transition-all duration-300 transform',
               isMenuOpen ? '-rotate-45 -translate-y-1.5' : '',
-              isScrolled ? 'bg-gray-800' : 'bg-white',
+              isScrolled || isMenuOpen ? 'bg-gray-800' : 'bg-white',
             ]"
           ></span>
         </button>
@@ -92,10 +92,10 @@
     >
       <div
         v-if="isMenuOpen"
-        class="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-xl border-t border-gray-200/50 md:hidden"
+        class="absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-200 md:hidden z-40"
       >
         <nav class="container px-4 py-6 mx-auto sm:px-6">
-          <ul class="space-y-2">
+          <ul class="space-y-1">
             <li v-for="(item, index) in navItems" :key="index">
               <a
                 :href="item.href"
@@ -113,29 +113,27 @@
           </ul>
 
           <!-- Información adicional en móvil -->
-          <div class="pt-6 mt-6 border-t border-gray-200">
-            <div class="flex items-center justify-center space-x-4">
-              <a
-                href="mailto:go.am.contacto@gmail.com"
-                class="flex items-center px-4 py-2 text-sm text-gray-600 transition-colors duration-300 rounded-lg hover:text-teal-600 hover:bg-teal-50"
+          <div class="pt-4 mt-4 border-t border-gray-200">
+            <a
+              href="mailto:go.am.contacto@gmail.com"
+              class="flex items-center justify-center px-4 py-3 text-sm text-gray-600 transition-colors duration-300 rounded-lg hover:text-teal-600 hover:bg-teal-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Contacto
-              </a>
-            </div>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              Contacto
+            </a>
           </div>
         </nav>
       </div>
@@ -153,8 +151,7 @@
       <div
         v-if="isMenuOpen"
         @click="closeMenu"
-        class="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden"
-        style="z-index: 40"
+        class="fixed inset-0 bg-black/30 md:hidden z-30"
       ></div>
     </Transition>
   </header>
@@ -171,6 +168,7 @@ const navItems = [
   { id: 'contacto', label: 'Contacto', href: '/#contacto' },
 ]
 
+const activeSection = ref('inicio')
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
 
@@ -211,6 +209,40 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)
   window.addEventListener('keydown', handleKeydown)
+
+  // Intersection logic para detectar la sección activa
+  const sectionIds = navItems.map((item) => item.id)
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean) as HTMLElement[]
+
+  let ticking = false
+  const updateActiveSection = () => {
+    let found = false
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i]
+      const rect = section.getBoundingClientRect()
+      if (rect.top <= 120 && rect.bottom > 120) {
+        activeSection.value = section.id
+        found = true
+        break
+      }
+    }
+    if (!found) {
+      activeSection.value = 'inicio'
+    }
+  }
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveSection()
+        ticking = false
+      })
+      ticking = true
+    }
+  }
+  window.addEventListener('scroll', onScroll)
+  updateActiveSection()
 })
 
 onUnmounted(() => {
