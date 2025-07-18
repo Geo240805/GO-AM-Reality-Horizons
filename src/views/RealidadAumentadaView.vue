@@ -16,7 +16,6 @@
           class="h-[50px] sm:h-[60px] w-auto"
         />
       </RouterLink>
-
       <div class="flex items-center gap-4 md:gap-8">
         <RouterLink
           to="/"
@@ -62,160 +61,113 @@
         </p>
       </section>
 
-      <!-- Contenedor de códigos QR -->
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
-        <!-- QR 1 -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group"
-        >
-          <div
-            class="flex flex-col items-center p-4 m-2 border-2 border-gray-200 border-dashed rounded-xl"
-          >
-            <div class="relative w-full mb-4">
-              <img
-                src="/realidadA/QR1.jpg"
-                alt="QR 1"
-                class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
-              />
+      <!-- Contenedor de códigos QR - Dos tarjetas -->
+      <div class="flex justify-center items-center w-full mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl items-stretch">
+          <!-- QR 1 - Activo -->
+          <div class="w-64">
+            <a href="https://crazy-drinks.super.site/" target="_blank" rel="noopener noreferrer">
               <div
-                class="absolute inset-0 transition-colors duration-300 rounded-lg bg-teal-500/0 group-hover:bg-teal-500/10"
-              ></div>
-            </div>
-            <h3 class="mb-1 text-lg font-bold text-gray-800">Experiencia AR #1</h3>
-            <p class="mb-3 text-sm text-gray-600">Escanea para descubrir</p>
-            <div class="flex items-center justify-center gap-2 text-teal-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group border border-gray-100 h-full"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              <span class="text-sm">Escanea con tu cámara</span>
-            </div>
+                <div
+                  class="flex flex-col items-center p-4 m-2 border-2 border-gray-200 border-dashed rounded-xl justify-between h-full"
+                >
+                  <div class="relative w-full mb-3">
+                    <img
+                      src="@/assets/images/ar/crazy-drinks.png"
+                      alt="QR 1"
+                      class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                    <div
+                      class="absolute inset-0 transition-colors duration-300 rounded-lg bg-teal-500/0 group-hover:bg-teal-500/10"
+                    ></div>
+                  </div>
+                  <h3 class="mb-1 text-base font-bold text-gray-800">Experiencia AR #1</h3>
+                  <span class="text-xs text-gray-500 mb-2">Crazy Drinks</span>
+                  <p class="mb-3 text-xs text-gray-600 text-center leading-relaxed">
+                    Presiona o escanea el código QR para ver la experiencia.
+                  </p>
+                  <div class="flex items-center justify-center gap-2 text-teal-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span class="text-xs">Escanea con tu cámara</span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
-        </div>
 
-        <!-- QR 2 -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group"
-        >
-          <div
-            class="flex flex-col items-center p-4 m-2 border-2 border-gray-200 border-dashed rounded-xl"
-          >
-            <div class="relative w-full mb-4">
-              <img
-                src="/realidadA/QR2.jpg"
-                alt="QR 2"
-                class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
-              />
+          <!-- QR 2 - Próximamente -->
+          <div class="w-64">
+            <div
+              class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-200 relative h-full"
+            >
               <div
-                class="absolute inset-0 transition-colors duration-300 rounded-lg bg-teal-500/0 group-hover:bg-teal-500/10"
-              ></div>
-            </div>
-            <h3 class="mb-1 text-lg font-bold text-gray-800">Experiencia AR #2</h3>
-            <p class="mb-3 text-sm text-gray-600">Escanea para descubrir</p>
-            <div class="flex items-center justify-center gap-2 text-teal-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                class="flex flex-col items-center p-4 m-2 border-2 border-gray-300 border-dashed rounded-xl justify-between h-full"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              <span class="text-sm">Escanea con tu cámara</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- QR 3 -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group"
-        >
-          <div
-            class="flex flex-col items-center p-4 m-2 border-2 border-gray-200 border-dashed rounded-xl"
-          >
-            <div class="relative w-full mb-4">
-              <img
-                src="/realidadA/QR3.jpg"
-                alt="QR 3"
-                class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
-              />
-              <div
-                class="absolute inset-0 transition-colors duration-300 rounded-lg bg-teal-500/0 group-hover:bg-teal-500/10"
-              ></div>
-            </div>
-            <h3 class="mb-1 text-lg font-bold text-gray-800">Experiencia AR #3</h3>
-            <p class="mb-3 text-sm text-gray-600">Escanea para descubrir</p>
-            <div class="flex items-center justify-center gap-2 text-teal-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              <span class="text-sm">Escanea con tu cámara</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- QR 4 -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group"
-        >
-          <div
-            class="flex flex-col items-center p-4 m-2 border-2 border-gray-200 border-dashed rounded-xl"
-          >
-            <div class="relative w-full mb-4">
-              <img
-                src="/realidadA/QR4.jpg"
-                alt="QR 4"
-                class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
-              />
-              <div
-                class="absolute inset-0 transition-colors duration-300 rounded-lg bg-teal-500/0 group-hover:bg-teal-500/10"
-              ></div>
-            </div>
-            <h3 class="mb-1 text-lg font-bold text-gray-800">Experiencia AR #4</h3>
-            <p class="mb-3 text-sm text-gray-600">Escanea para descubrir</p>
-            <div class="flex items-center justify-center gap-2 text-teal-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
-              </svg>
-              <span class="text-sm">Escanea con tu cámara</span>
+                <div
+                  class="relative w-full mb-3 flex items-center justify-center h-32 bg-gray-200 rounded-lg"
+                >
+                  <div class="text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-12 h-12 text-gray-400 mx-auto mb-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+                    <span class="text-xs text-gray-500">QR Code</span>
+                  </div>
+                </div>
+                <h3 class="mb-1 text-base font-bold text-gray-600">Experiencia AR #2</h3>
+                <span class="text-xs text-gray-400 mb-2">Próximamente</span>
+                <p class="mb-3 text-xs text-gray-500 text-center leading-relaxed">
+                  Nueva experiencia de realidad aumentada en desarrollo.
+                </p>
+                <div class="flex items-center justify-center gap-2 text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span class="text-xs">Muy pronto</span>
+                </div>
+              </div>
+              <!-- Badge "Próximamente" -->
+              <div class="absolute top-2 right-2">
+                <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                  Próximamente
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -234,14 +186,13 @@
                   1
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-800">Escanea el código QR</h3>
+                  <h3 class="font-semibold text-gray-800">Escanea el código QR o haz clic en él</h3>
                   <p class="text-gray-600">
                     Utiliza la cámara de tu dispositivo móvil para escanear cualquiera de los
                     códigos QR mostrados arriba.
                   </p>
                 </div>
               </div>
-
               <div class="flex items-start gap-3">
                 <div
                   class="flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 text-white bg-teal-500 rounded-full"
@@ -256,7 +207,6 @@
                   </p>
                 </div>
               </div>
-
               <div class="flex items-start gap-3">
                 <div
                   class="flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 text-white bg-teal-500 rounded-full"
@@ -273,7 +223,6 @@
               </div>
             </div>
           </div>
-
           <div class="flex justify-center md:w-1/2">
             <img
               src="@/assets/images/services/realidadAR.jpg"
@@ -310,9 +259,7 @@
             <img src="@/assets/logo.png" alt="Logo" class="w-auto h-12" />
             <span class="text-lg font-semibold">GO-AM Reality Horizons</span>
           </div>
-
           <div class="text-sm text-teal-100">© 2023 Todos los derechos reservados</div>
-
           <div class="flex gap-4">
             <a
               href="https://www.facebook.com/profile.php?id=61568564205069"
