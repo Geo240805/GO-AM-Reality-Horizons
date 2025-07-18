@@ -75,7 +75,7 @@
                 >
                   <div class="relative w-full mb-3">
                     <img
-                      src="@/assets/images/ar/crazy-drinks.png"
+                      src="/images/ar/crazy-drinks.png"
                       alt="QR 1"
                       class="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
                     />
@@ -225,7 +225,7 @@
           </div>
           <div class="flex justify-center md:w-1/2">
             <img
-              src="@/assets/images/services/realidadAR.jpg"
+              src="/images/services/realidadAR.jpg"
               alt="Realidad Aumentada"
               class="w-full h-auto max-w-md shadow-md rounded-xl"
             />
