@@ -8,7 +8,7 @@
       :key="`bg-${index}`"
       class="absolute inset-0 transition-all duration-1000 ease-in-out bg-center bg-cover"
       :style="{
-        backgroundImage: `url('/src/assets/images/carousel/${img}')`,
+        backgroundImage: `url('/images/carousel/${img}')`,
         opacity: currentImage === index ? 1 : 0,
         transform: `scale(${currentImage === index ? 1 : 1.1})`,
       }"
