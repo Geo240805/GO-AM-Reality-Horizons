@@ -116,12 +116,9 @@ const enviarFormulario = async () => {
       asunto: asunto.value,
       mensaje: mensaje.value,
     })
-    if (response.status === 200) {
+    if (response.status) {
       // Mostrar mensaje de éxito
       toast.success('Mensaje enviado correctamente')
-    } else {
-      // Mostrar mensaje de error
-      toast.error('Hubo un error al enviar el formulario')
     }
 
     // Limpiar campos
